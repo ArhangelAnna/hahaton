@@ -46,32 +46,52 @@
                 setResult({ status: 'loading', message: 'Идет форматирование файла...' });
 
                 try {
-                    // Здесь должна быть реальная отправка на сервер
-                    // Для демонстрации используем setTimeout
-                    setTimeout(() => {
-                        // Создаем фиктивный blob с информацией о работе
-                        const content = [
-                            `ФИО: ${formData.studentName}`,
-                            `Группа: ${formData.studentGroup}`,
-                            `Тема: ${formData.workTopic}`,
-                            `\nСписок литературы:\n${literature.map((item, i) => `${i+1}. ${item}`).join('\n')}`
-                        ].join('\n');
-                        
-                        const blob = new Blob([content], { type: 'application/octet-stream' });
-                        const url = URL.createObjectURL(blob);
-                        
-                        // Автоматическое скачивание
-                        const a = document.createElement('a');
-                        a.href = url;
-                        a.download = `formatted_${file.name.split('.')[0]}.${format}`;
-                        a.click();
+                    // 1. Создаем FormData для отправки файла и данных
+                const formPayload = new FormData();
+                
+                // 2. Добавляем файл
+                formPayload.append('document', file);
+                
+                // 3. Добавляем метаданные в JSON
+                formPayload.append('metadata', JSON.stringify({
+                    format: format,
+                    titleData: formData,
+                    literature: literature
+                }));
 
-                        setResult({ status: 'success', message: 'Форматирование завершено! Файл автоматически загружается.' });
-                    }, 1500);
+                // 4. Отправляем на сервер
+                const response = await fetch('http://localhost:8080/format', {
+                    method: 'POST',
+                    body: formPayload
+                    // Не устанавливаем Content-Type - браузер сделает это сам с boundary
+                });
 
-                } catch (error) {
-                    setResult({ status: 'error', message: error.message });
+                if (!response.ok) {
+                    throw new Error(`Ошибка сервера: ${response.status}`);
                 }
+
+                // 5. Получаем и сохраняем результат
+                const blob = await response.blob();
+                const url = URL.createObjectURL(blob);
+                
+                // 6. Автоматическое скачивание
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `formatted_${file.name.split('.')[0]}.${format}`;
+                a.click();
+
+                setResult({ 
+                    status: 'success', 
+                    message: 'Форматирование завершено! Файл автоматически загружается.' 
+                });
+
+            } catch (error) {
+                setResult({ 
+                    status: 'error', 
+                    message: `Ошибка: ${error.message}`
+                });
+                console.error('Ошибка при отправке:', error);
+            }
             };
 
             return (
