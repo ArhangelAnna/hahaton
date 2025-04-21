@@ -8,228 +8,154 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Иконки Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- React CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-light">
-    <div class="container py-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="card shadow-sm">
-                    <div class="card-header text-white">
-                        <h2 class="h4 mb-0"><i class="bi bi-file-earmark-text me-2"></i>Форматирование курсовой по ГОСТ</h2>
-                    </div>
-                    <div class="card-body">
-                        <div class="mb-4">
-                            <p class="text-muted">Загрузите файл курсовой работы (DOCX, TXT или ODT) БЕЗ ТИТУЛЬНОГО ЛИСТА, и мы автоматически отформатируем его по ГОСТ СТО 1.701-2010</p>
-                        </div>
+    <div id="root"></div>
+    <script type="text/babel" src="js/fileUpload.js"></script>
+    <script type="text/babel" src="js/literature.js"></script>
+    <script type="text/babel" src="js/titlePageForm.js"></script>
+    <script type="text/babel">
+        const { useState, useRef } = React;
+        // Главный компонент приложения
+        function App() {
+            const [file, setFile] = useState(null);
+            const [format, setFormat] = useState('docx');
+            const [formData, setFormData] = useState({
+                studentName: '',
+                pz: '',
+                studentGroup: '',
+                workTitle: '',
+                workTopic: '',
+                institute: '',
+                department: '',
+                teacherName: '',
+                teacherPosition: '',
+                workYear: ''
+            });
+            const [literature, setLiterature] = useState([]);
+            const [result, setResult] = useState(null);
 
-                        <!-- Область загрузки файла -->
-                        <div class="upload-area mb-4" id="uploadArea">
-                            <input type="file" id="fileInput" class="d-none" accept=".docx,.txt,.odt">
-                            <div class="preview-icon mb-3">
-                                <i class="bi bi-cloud-arrow-up"></i>
+            const handleFormatSubmit = async () => {
+                if (!file) return;
+                
+                setResult({ status: 'loading', message: 'Идет форматирование файла...' });
+
+                try {
+                    // Здесь должна быть реальная отправка на сервер
+                    // Для демонстрации используем setTimeout
+                    setTimeout(() => {
+                        // Создаем фиктивный blob с информацией о работе
+                        const content = [
+                            `ФИО: ${formData.studentName}`,
+                            `Группа: ${formData.studentGroup}`,
+                            `Тема: ${formData.workTopic}`,
+                            `\nСписок литературы:\n${literature.map((item, i) => `${i+1}. ${item}`).join('\n')}`
+                        ].join('\n');
+                        
+                        const blob = new Blob([content], { type: 'application/octet-stream' });
+                        const url = URL.createObjectURL(blob);
+                        
+                        // Автоматическое скачивание
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = `formatted_${file.name.split('.')[0]}.${format}`;
+                        a.click();
+
+                        setResult({ status: 'success', message: 'Форматирование завершено! Файл автоматически загружается.' });
+                    }, 1500);
+
+                } catch (error) {
+                    setResult({ status: 'error', message: error.message });
+                }
+            };
+
+            return (
+                <div className="container py-5">
+                    <div className="row justify-content-center">
+                        <div className="col-lg-8">
+                            <div className="card shadow-sm">
+                                <div className="card-header text-white bg-primary">
+                                    <h2 className="h4 mb-0"><i className="bi bi-file-earmark-text me-2"></i>Форматирование курсовой по ГОСТ</h2>
+                                </div>
+                                <div className="card-body">
+                                    <div className="mb-4">
+                                        <p className="text-muted">Загрузите файл курсовой работы (DOCX, TXT или ODT) БЕЗ ТИТУЛЬНОГО ЛИСТА, и мы автоматически отформатируем его по ГОСТ СТО 1.701-2010</p>
+                                    </div>
+
+                                    <FileUploadArea 
+                                        onFileSelect={setFile}
+                                        onFileClear={() => setFile(null)}
+                                        fileName={file?.name}
+                                    />
+
+                                    <div className="mb-4">
+                                        <h5 className="mb-3"><i className="bi bi-gear me-2"></i>Настройки форматирования</h5>
+                                        <div className="row">
+                                            <div className="col-md-6 mb-3">
+                                                <label className="form-label">Формат результата</label>
+                                                <select 
+                                                    className="form-select" 
+                                                    value={format}
+                                                    onChange={(e) => setFormat(e.target.value)}
+                                                >
+                                                    <option value="docx">DOCX (Word)</option>
+                                                    <option value="pdf">PDF</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <TitlePageForm 
+                                        formData={formData}
+                                        onFormChange={setFormData}
+                                    />
+
+                                    <LiteratureList 
+                                        literature={literature}
+                                        setLiterature={setLiterature}
+                                    />
+
+                                    <div className="d-grid gap-2 mt-4">
+                                        <button 
+                                            className="btn btn-custom btn-lg"
+                                            onClick={handleFormatSubmit}
+                                            disabled={!file}
+                                        >
+                                            <i className="bi bi-magic me-2"></i>Отформатировать по ГОСТ
+                                        </button>
+                                    </div>
+
+                                    {result && (
+                                        <div className={`alert mt-4 alert-${result.status === 'error' ? 'danger' : result.status === 'success' ? 'success' : 'info'} d-flex align-items-center`}>
+                                            {result.status === 'loading' ? (
+                                                <div className="spinner-border spinner-border-sm me-2" role="status"></div>
+                                            ) : result.status === 'success' ? (
+                                                <i className="bi bi-check-circle-fill me-2"></i>
+                                            ) : (
+                                                <i className="bi bi-exclamation-triangle-fill me-2"></i>
+                                            )}
+                                            <span>{result.message}</span>
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="card-footer text-muted small">
+                                    <i className="bi bi-info-circle me-1"></i>Система автоматически применяет требования ГОСТ СТО 1.701-2010
+                                </div>
                             </div>
-                            <h5 class="mb-2">Перетащите файл сюда или нажмите для выбора</h5>
-                            <p class="text-muted small">Поддерживаемые форматы: .docx, .txt, .odt</p>
-                            <div id="fileInfo" class="file-info d-none">
-                                <span class="badge bg-info" id="fileName"></span>
-                                <button class="btn btn-sm btn-outline-danger ms-2" id="clearFile">
-                                    <i class="bi bi-x"></i>
-                                </button>
-                            </div>
                         </div>
-
-                        <!-- Настройки форматирования -->
-<div class="mb-4">
-    <h5 class="mb-3"><i class="bi bi-gear me-2"></i>Настройки форматирования</h5>
-    <div class="row">
-        <div class="col-md-6 mb-3">
-            <label class="form-label">Формат результата</label>
-            <select class="form-select" id="formatSelect">
-                <option value="docx">DOCX (Word)</option>
-                <option value="pdf">PDF</option>
-            </select>
-        </div>
-    </div>
-    
-        <div class="card mt-3">
-            <div class="card-header bg-light">
-                <h6 class="mb-0"><i class="bi bi-card-heading me-2"></i>Данные для титульного листа</h6>
-            </div>
-            <div class="card-body">
-                <div class="row g-3">
-                    <div class="col-md-6">
-                        <label class="form-label">Фамилия И.О. студента</label>
-                        <input type="text" class="form-control" id="studentName" placeholder="Иванов И.И.">
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">ПЗ</label>
-                        <input type="text" class="form-control" id="pz" placeholder="004.457">
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Группа</label>
-                        <input type="text" class="form-control" id="studentGroup" placeholder="ПИ-123">
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Название работы</label>
-                        <input type="text" class="form-control" id="workTitle" placeholder="Курсовая работа">
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Тема работы</label>
-                        <input type="text" class="form-control" id="workTopic" placeholder="Разработка веб-приложения">
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Институт</label>
-                        <input type="text" class="form-control" id="institute" placeholder="Институт компьютерных наук">
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Кафедра</label>
-                        <input type="text" class="form-control" id="department" placeholder="Программная инженерия">
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">ФИО преподавателя</label>
-                        <input type="text" class="form-control" id="teacherName" placeholder="Петрова П.П.">
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Должность преподавателя</label>
-                        <input type="text" class="form-control" id="teacherPosition" placeholder="доцент">
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Год выполнения</label>
-                        <input type="number" class="form-control" id="workYear" placeholder="2023" min="2000" max="2100">
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+            );
+        }
 
-                        <!-- Кнопка форматирования -->
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-custom btn-lg btn-format" id="formatButton" disabled>
-                                <i class="bi bi-magic me-2"></i>Отформатировать по ГОСТ
-                            </button>
-                        </div>
-
-                        <!-- Область результата -->
-                        <div id="result" class="mt-4"></div>
-                    </div>
-                    <div class="card-footer text-muted small">
-                        <i class="bi bi-info-circle me-1"></i>Система автоматически применяет требования ГОСТ СТО 1.701-2010
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <script>
-        // Обработка выбора файла
-        const fileInput = document.getElementById('fileInput');
-        const uploadArea = document.getElementById('uploadArea');
-        const fileName = document.getElementById('fileName');
-        const fileInfo = document.getElementById('fileInfo');
-        const clearFile = document.getElementById('clearFile');
-        const formatButton = document.getElementById('formatButton');
-        const previewIcon = document.querySelector('.preview-icon');
-
-        uploadArea.addEventListener('click', () => fileInput.click());
-        
-        fileInput.addEventListener('change', (e) => {
-            if (e.target.files.length > 0) {
-                const file = e.target.files[0];
-                fileName.textContent = file.name;
-                fileInfo.classList.remove('d-none');
-                formatButton.disabled = false;
-                previewIcon.innerHTML = '<i class="bi bi-file-earmark-text"></i>';
-            }
-        });
-
-        clearFile.addEventListener('click', (e) => {
-            e.stopPropagation();
-            fileInput.value = '';
-            fileInfo.classList.add('d-none');
-            formatButton.disabled = true;
-            previewIcon.innerHTML = '<i class="bi bi-cloud-arrow-up"></i>';
-        });
-
-        // Обработка drag and drop
-        uploadArea.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            uploadArea.style.borderColor = '#0d6efd';
-            uploadArea.style.backgroundColor = '#e9f0ff';
-        });
-
-        uploadArea.addEventListener('dragleave', () => {
-            uploadArea.style.borderColor = '#dee2e6';
-            uploadArea.style.backgroundColor = '#f8f9fa';
-        });
-
-        uploadArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            uploadArea.style.borderColor = '#dee2e6';
-            uploadArea.style.backgroundColor = '#f8f9fa';
-            
-            if (e.dataTransfer.files.length > 0) {
-                fileInput.files = e.dataTransfer.files;
-                const file = e.dataTransfer.files[0];
-                fileName.textContent = file.name;
-                fileInfo.classList.remove('d-none');
-                formatButton.disabled = false;
-                previewIcon.innerHTML = '<i class="bi bi-file-earmark-text"></i>';
-            }
-        });
-
-        // Отправка файла на сервер
-        formatButton.addEventListener('click', async () => {
-            if (!fileInput.files[0]) return;
-            
-            const format = document.getElementById('formatSelect').value;
-            const resultDiv = document.getElementById('result');
-            
-            resultDiv.innerHTML = `
-                <div class="alert alert-info d-flex align-items-center">
-                    <div class="spinner-border spinner-border-sm me-2" role="status"></div>
-                    <span>Идет форматирование файла...</span>
-                </div>
-            `;
-
-            try {
-                const formData = new FormData();
-                formData.append('file', fileInput.files[0]);
-                formData.append('format', format);
-
-                const response = await fetch('/api/format', {
-                    method: 'POST',
-                    body: formData
-                });
-
-                if (!response.ok) throw new Error('Ошибка сервера');
-
-                const blob = await response.blob();
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = `formatted.${format}`;
-                a.click();
-                URL.revokeObjectURL(url);
-
-                resultDiv.innerHTML = `
-                    <div class="alert alert-success d-flex align-items-center">
-                        <i class="bi bi-check-circle-fill me-2"></i>
-                        <span>Форматирование завершено! Файл автоматически загружается.</span>
-                    </div>
-                `;
-            } catch (error) {
-                resultDiv.innerHTML = `
-                    <div class="alert alert-danger d-flex align-items-center">
-                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
-                        <span>Ошибка: ${error.message}</span>
-                    </div>
-                `;
-            }
-        });
+        // Рендерим приложение
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
     </script>
 </body>
 </html>

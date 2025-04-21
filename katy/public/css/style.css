@@ -32,3 +32,13 @@
     color: #e10dfd;
     border: solid #fbe9ff ;
 }
+.literature-item {
+    position: relative;
+    padding-right: 40px;
+}
+.remove-literature {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
