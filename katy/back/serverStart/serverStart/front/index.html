@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форматирование курсовой по ГОСТ</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Иконки Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- React CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light">
+    <div id="root"></div>
+    <script type="text/babel" src="js/fileUpload.js"></script>
+    <script type="text/babel" src="js/literature.js"></script>
+    <script type="text/babel" src="js/titlePageForm.js"></script>
+    <script type="text/babel">
+        const { useState, useRef } = React;
+        // Главный компонент приложения
+        function App() {
+            const [file, setFile] = useState(null);
+            const [format, setFormat] = useState('docx');
+            const [formData, setFormData] = useState({
+                studentName: '',
+                pz: '',
+                studentGroup: '',
+                workTitle: '',
+                workTopic: '',
+                institute: '',
+                department: '',
+                teacherName: '',
+                teacherPosition: '',
+                workYear: ''
+            });
+            const [literature, setLiterature] = useState([]);
+            const [result, setResult] = useState(null);
+
+            const handleFormatSubmit = async () => {
+                if (!file) return;
+                
+                setResult({ status: 'loading', message: 'Идет форматирование файла...' });
+
+                try {
+                    // 1. Создаем FormData для отправки файла и данных
+                const formPayload = new FormData();
+                
+                // 2. Добавляем файл
+                formPayload.append('document', file);
+                
+                // 3. Добавляем метаданные в JSON
+                formPayload.append('metadata', JSON.stringify({
+                    format: format,
+                    titleData: formData,
+                    literature: literature
+                }));
+                console.log([...formPayload.entries()]);
+                // 4. Отправляем на сервер
+                const response = await fetch('http://localhost:8080/format', {
+                    method: 'POST',
+                    body: formPayload
+                    // Не устанавливаем Content-Type - браузер сделает это сам с boundary
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Ошибка сервера: ${response.status}`);
+                }
+
+                // 5. Получаем и сохраняем результат
+                const blob = await response.blob();
+                const url = URL.createObjectURL(blob);
+                
+                // 6. Автоматическое скачивание
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `Отчет_по_${formData.workTitle.trim().replace(/\s+/g, '_')}_СП_${formData.studentName.trim().replace(/\s+/g, '_').replace(/\./g, '_')}${formData.studentGroup}.${format}`;
+                a.click();
+
+                setResult({ 
+                    status: 'success', 
+                    message: 'Форматирование завершено! Файл автоматически загружается.' 
+                });
+
+            } catch (error) {
+                setResult({ 
+                    status: 'error', 
+                    message: `Ошибка: ${error.message}`
+                });
+                console.error('Ошибка при отправке:', error);
+            }
+            };
+
+            return (
+                <div className="container py-5">
+                    <div className="row justify-content-center">
+                        <div className="col-lg-8">
+                            <div className="card shadow-sm">
+                                <div className="card-header text-white bg-primary">
+                                    <h2 className="h4 mb-0"><i className="bi bi-file-earmark-text me-2"></i>Форматирование курсовой по ГОСТ</h2>
+                                </div>
+                                <div className="card-body">
+                                    <div className="mb-4">
+                                        <p className="text-muted">Загрузите файл курсовой работы (DOCX, TXT или ODT) БЕЗ ТИТУЛЬНОГО ЛИСТА, и мы автоматически отформатируем его по ГОСТ СТО 1.701-2010</p>
+                                    </div>
+
+                                    <FileUploadArea 
+                                        onFileSelect={setFile}
+                                        onFileClear={() => setFile(null)}
+                                        fileName={file?.name}
+                                    />
+
+                                    <div className="mb-4">
+                                        <h5 className="mb-3"><i className="bi bi-gear me-2"></i>Настройки форматирования</h5>
+                                        <div className="row">
+                                            <div className="col-md-6 mb-3">
+                                                <label className="form-label">Формат результата</label>
+                                                <select 
+                                                    className="form-select" 
+                                                    value={format}
+                                                    onChange={(e) => setFormat(e.target.value)}
+                                                >
+                                                    <option value="docx">DOCX (Word)</option>
+                                                    <option value="pdf">PDF</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <TitlePageForm 
+                                        formData={formData}
+                                        onFormChange={setFormData}
+                                    />
+
+                                    <LiteratureList 
+                                        literature={literature}
+                                        setLiterature={setLiterature}
+                                    />
+
+                                    <div className="d-grid gap-2 mt-4">
+                                        <button 
+                                            className="btn btn-custom btn-lg"
+                                            onClick={handleFormatSubmit}
+                                            disabled={!file}
+                                        >
+                                            <i className="bi bi-magic me-2"></i>Отформатировать по ГОСТ
+                                        </button>
+                                    </div>
+
+                                    {result && (
+                                        <div className={`alert mt-4 alert-${result.status === 'error' ? 'danger' : result.status === 'success' ? 'success' : 'info'} d-flex align-items-center`}>
+                                            {result.status === 'loading' ? (
+                                                <div className="spinner-border spinner-border-sm me-2" role="status"></div>
+                                            ) : result.status === 'success' ? (
+                                                <i className="bi bi-check-circle-fill me-2"></i>
+                                            ) : (
+                                                <i className="bi bi-exclamation-triangle-fill me-2"></i>
+                                            )}
+                                            <span>{result.message}</span>
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="card-footer text-muted small">
+                                    <i className="bi bi-info-circle me-1"></i>Система автоматически применяет требования ГОСТ СТО 1.701-2010
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        // Рендерим приложение
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
