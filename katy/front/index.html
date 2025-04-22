@@ -58,7 +58,7 @@
                     titleData: formData,
                     literature: literature
                 }));
-
+                console.log([...formPayload.entries()]);
                 // 4. Отправляем на сервер
                 const response = await fetch('http://localhost:8080/format', {
                     method: 'POST',
