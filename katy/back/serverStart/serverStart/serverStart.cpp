@@ -6,6 +6,7 @@
 using json = nlohmann::json;
 using namespace httplib;
 using namespace std;
+
 string format_document(const string& file_content, const json& metadata) {
     return "Форматированный документ";
 }
