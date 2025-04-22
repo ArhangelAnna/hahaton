@@ -1,15 +1,15 @@
 .upload-area {
-    border: 2px dashed #dee2e6;
+    border: 2px dashed #e6dede;
     border-radius: 15px;
     padding: 2rem;
     text-align: center;
     cursor: pointer;
     transition: all 0.3s;
-    background-color: #f8f9fa;
+    background-color: #faf8f8;
 }
 .upload-area:hover {
-    border-color: #e10dfd;
-    background-color: #fbe9ff;
+    border-color: #9c0d0d;
+    background-color: #ffe9e9;
 }
 .file-info {
     margin-top: 1rem;
@@ -26,11 +26,11 @@
     color:#9ca4aa;
 }
 .card-header{
-    background-color: #e10dfd;
+    background-color: #9c0d0d;
 }
 .btn-custom{
-    color: #e10dfd;
-    border: solid #fbe9ff ;
+    color: #9c0d0d;
+    border: solid #ffe9e9 ;
 }
 .literature-item {
     position: relative;
