@@ -5,8 +5,8 @@
 
 using json = nlohmann::json;
 using namespace httplib;
-
-std::string format_document(const std::string& file_content, const json& metadata) {
+using namespace std;
+string format_document(const string& file_content, const json& metadata) {
     return "Форматированный документ";
 }
 
@@ -25,10 +25,10 @@ int main() {
         });
 
     svr.Post("/format", [](const Request& req, Response& res) {
-        std::cout << "Received POST to /format\n";
+        cout << "Received POST to /format\n";
 
         if (!req.has_file("document") || !req.has_file("metadata")) {
-            std::cout << "Missing files in request\n";
+            cout << "Missing files in request\n";
             res.status = 400;
             res.set_content("Неверный формат запроса", "text/plain");
             return;
@@ -38,28 +38,28 @@ int main() {
             auto file = req.get_file_value("document");
             auto metadata_json = req.get_file_value("metadata");
 
-            std::cout << "File size: " << file.content.length() << " bytes\n";
-            std::cout << "Metadata: " << metadata_json.content << "\n";
+            cout << "File size: " << file.content.length() << " bytes\n";
+            cout << "Metadata: " << metadata_json.content << "\n";
 
             json metadata = json::parse(metadata_json.content);
-            std::string result = format_document(file.content, metadata);
+            string result = format_document(file.content, metadata);
 
             res.set_content(result, "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
             res.set_header("Content-Disposition", "attachment; filename=formatted.docx");
 
         }
-        catch (const std::exception& e) {
-            std::cerr << "Error: " << e.what() << "\n";
+        catch (const exception& e) {
+            cerr << "Error: " << e.what() << "\n";
             res.status = 500;
-            res.set_content("Ошибка обработки: " + std::string(e.what()), "text/plain");
+            res.set_content("Ошибка обработки: " + string(e.what()), "text/plain");
         }
         });
 
     svr.set_base_dir("./front"); // Папка, где хранятся ваши HTML файлы
 
-    std::cout << "Сервер запущен на http://localhost:8080\n";
+    cout << "Сервер запущен на http://localhost:8080\n";
     if (!svr.listen("0.0.0.0", 8080)) {
-        std::cerr << "Не удалось запустить сервер!\n";
+        cerr << "Не удалось запустить сервер!\n";
         return 1;
     }
     return 0;

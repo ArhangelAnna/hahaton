@@ -77,7 +77,7 @@
                 // 6. Автоматическое скачивание
                 const a = document.createElement('a');
                 a.href = url;
-                a.download = `formatted_${file.name.split('.')[0]}.${format}`;
+                a.download = `Отчет_по_${formData.workTitle.trim().replace(/\s+/g, '_')}_СП_${formData.studentName.trim().replace(/\s+/g, '_').replace(/\./g, '_')}${formData.studentGroup}.${format}`;
                 a.click();
 
                 setResult({ 
