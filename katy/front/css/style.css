@@ -8,8 +8,8 @@
     background-color: #f8f9fa;
 }
 .upload-area:hover {
-    border-color: #e10dfd;
-    background-color: #fbe9ff;
+    border-color: #fd0d0d;
+    background-color: #ffe9e9;
 }
 .file-info {
     margin-top: 1rem;
@@ -26,11 +26,11 @@
     color:#9ca4aa;
 }
 .card-header{
-    background-color: #e10dfd;
+    background-color: #fd0d0d;
 }
 .btn-custom{
-    color: #e10dfd;
-    border: solid #fbe9ff ;
+    color: #fd0d0d;
+    border: solid #ffe9e9 ;
 }
 .literature-item {
     position: relative;
