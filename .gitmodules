@@ -1,0 +1,6 @@
+[submodule "katy/back/serverStart/serverStart/libs/tinyxml2"]
+	path = katy/back/serverStart/serverStart/libs/tinyxml2
+	url = https://github.com/leethomason/tinyxml2.git
+[submodule "katy/back/serverStart/serverStart/libs/minizip"]
+	path = katy/back/serverStart/serverStart/libs/minizip
+	url = https://github.com/zlib-ng/minizip-ng.git
