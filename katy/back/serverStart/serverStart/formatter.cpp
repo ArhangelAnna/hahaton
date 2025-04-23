@@ -3,7 +3,7 @@
 #include <sstream>
 #include <iostream>
 #include <vector>
-#include <libs/tinyxml2/tinyxml2.h>
+#include <tinyxml2.h>
 #include <libs/minizip/mz.h>          // Базовые определения
 #include <libs/minizip/mz_os.h>       // Функции ОС
 #include <libs/minizip/mz_strm.h>      // Потоки
