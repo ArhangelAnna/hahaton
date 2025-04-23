@@ -1,3 +1,0 @@
-C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/CMakeFiles/zlib-populate.dir
-C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/CMakeFiles/ALL_BUILD.dir
-C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/CMakeFiles/ZERO_CHECK.dir

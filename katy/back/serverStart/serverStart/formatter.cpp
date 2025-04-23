@@ -3,12 +3,12 @@
 #include <sstream>
 #include <iostream>
 #include <vector>
-#include <tinyxml2.h>
-#include <minizip/mz.h>          // Базовые определения
-#include <minizip/mz_os.h>       // Функции ОС
-#include <minizip/mz_strm.h>      // Потоки
-#include <minizip/mz_zip.h>       // ZIP-архивы
-#include <minizip/mz_zip_rw.h>    // Чтение/запись ZIP
+#include <libs/tinyxml2/tinyxml2.h>
+#include <libs/minizip/mz.h>          // Базовые определения
+#include <libs/minizip/mz_os.h>       // Функции ОС
+#include <libs/minizip/mz_strm.h>      // Потоки
+#include <libs/minizip/mz_zip.h>       // ZIP-архивы
+#include <libs/minizip/mz_zip_rw.h>    // Чтение/запись ZIP
 
 using namespace std;
 using namespace tinyxml2;
