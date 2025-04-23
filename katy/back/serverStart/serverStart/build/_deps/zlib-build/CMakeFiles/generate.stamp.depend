@@ -1,0 +1,36 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-4.0/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in
+C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDependentOption.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/CMakePackageConfigHelpers.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/CPack.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/CPackComponent.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/CheckCCompilerFlag.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/CheckCSourceRuns.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/CheckFunctionExists.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/CheckIncludeFileCXX.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/CheckSymbolExists.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/CheckTypeSize.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/FeatureSummary.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/GNUInstallDirs.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/Internal/CheckCompilerFlag.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/Internal/CheckFlagCommonConfig.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/Internal/CheckSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/Internal/CheckSourceRuns.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/WriteBasicConfigVersionFile.cmake
+C:/Program Files/CMake/share/cmake-4.0/Templates/CPackConfig.cmake.in
+C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-build/zconf-ng.h.cmakein
+C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/libs/minizip/third_party/zlib/CMakeLists.txt
+C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/libs/minizip/third_party/zlib/cmake/detect-arch.cmake
+C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/libs/minizip/third_party/zlib/cmake/detect-coverage.cmake
+C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/libs/minizip/third_party/zlib/cmake/detect-install-dirs.cmake
+C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/libs/minizip/third_party/zlib/cmake/detect-intrinsics.cmake
+C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/libs/minizip/third_party/zlib/cmake/detect-sanitizer.cmake
+C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/libs/minizip/third_party/zlib/cmake/fallback-macros.cmake
+C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/libs/minizip/third_party/zlib/gzread.c.in
+C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/libs/minizip/third_party/zlib/zlib-ng-config.cmake.in
+C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/libs/minizip/third_party/zlib/zlib-ng.h.in
+C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/libs/minizip/third_party/zlib/zlib.pc.cmakein
+C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/libs/minizip/third_party/zlib/zlib_name_mangling.h.empty

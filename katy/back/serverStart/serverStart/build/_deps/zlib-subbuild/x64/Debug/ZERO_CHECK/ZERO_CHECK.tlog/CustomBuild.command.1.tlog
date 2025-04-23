@@ -1,0 +1,10 @@
+^C:\USERS\AAN\HAHATON\KATY\BACK\SERVERSTART\SERVERSTART\BUILD\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\486CBAFC33A589461F4211488CB40C7B\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild -BC:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/zlib-populate.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

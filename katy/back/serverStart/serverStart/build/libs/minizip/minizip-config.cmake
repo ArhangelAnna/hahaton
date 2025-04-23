@@ -24,8 +24,5 @@ endmacro()
 
 ####################################################################################
 include(CMakeFindDependencyMacro)
-find_dependency(ZLIB)
-find_dependency(BZip2)
-find_dependency(LibLZMA)
-find_dependency(zstd)
+find_dependency(ZLIBNG)
 include("${CMAKE_CURRENT_LIST_DIR}/minizip.cmake")

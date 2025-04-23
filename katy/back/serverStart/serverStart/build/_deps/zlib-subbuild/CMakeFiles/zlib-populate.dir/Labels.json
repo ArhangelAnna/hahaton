@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/CMakeFiles/zlib-populate"
+		},
+		{
+			"file" : "C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/CMakeFiles/486cbafc33a589461f4211488cb40c7b/zlib-populate.rule"
+		},
+		{
+			"file" : "C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/CMakeFiles/1174f573d38a4ab2eb318fab02f2d1d5/zlib-populate-complete.rule"
+		},
+		{
+			"file" : "C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/CMakeFiles/4185bde53a7d30618ed75e232bf9ad3c/zlib-populate-build.rule"
+		},
+		{
+			"file" : "C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/CMakeFiles/4185bde53a7d30618ed75e232bf9ad3c/zlib-populate-configure.rule"
+		},
+		{
+			"file" : "C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/CMakeFiles/4185bde53a7d30618ed75e232bf9ad3c/zlib-populate-download.rule"
+		},
+		{
+			"file" : "C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/CMakeFiles/4185bde53a7d30618ed75e232bf9ad3c/zlib-populate-install.rule"
+		},
+		{
+			"file" : "C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/CMakeFiles/4185bde53a7d30618ed75e232bf9ad3c/zlib-populate-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/CMakeFiles/4185bde53a7d30618ed75e232bf9ad3c/zlib-populate-patch.rule"
+		},
+		{
+			"file" : "C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/CMakeFiles/4185bde53a7d30618ed75e232bf9ad3c/zlib-populate-test.rule"
+		},
+		{
+			"file" : "C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/CMakeFiles/4185bde53a7d30618ed75e232bf9ad3c/zlib-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"zlib-populate"
+		],
+		"name" : "zlib-populate"
+	}
+}

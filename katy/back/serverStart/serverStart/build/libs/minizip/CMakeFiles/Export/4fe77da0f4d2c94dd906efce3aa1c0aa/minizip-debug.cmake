@@ -15,35 +15,15 @@ set_target_properties(MINIZIP::minizip PROPERTIES
 list(APPEND _cmake_import_check_targets MINIZIP::minizip )
 list(APPEND _cmake_import_check_files_for_MINIZIP::minizip "${_IMPORT_PREFIX}/lib/minizip.lib" )
 
-# Import target "MINIZIP::bzip2" for configuration "Debug"
-set_property(TARGET MINIZIP::bzip2 APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
-set_target_properties(MINIZIP::bzip2 PROPERTIES
-  IMPORTED_LINK_INTERFACE_LANGUAGES_DEBUG "C"
-  IMPORTED_LOCATION_DEBUG "${_IMPORT_PREFIX}/lib/bzip2.lib"
+# Import target "MINIZIP::zlib" for configuration "Debug"
+set_property(TARGET MINIZIP::zlib APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
+set_target_properties(MINIZIP::zlib PROPERTIES
+  IMPORTED_IMPLIB_DEBUG "${_IMPORT_PREFIX}/lib/zlib-ngd.lib"
+  IMPORTED_LOCATION_DEBUG "${_IMPORT_PREFIX}/bin/zlib-ngd2.dll"
   )
 
-list(APPEND _cmake_import_check_targets MINIZIP::bzip2 )
-list(APPEND _cmake_import_check_files_for_MINIZIP::bzip2 "${_IMPORT_PREFIX}/lib/bzip2.lib" )
-
-# Import target "MINIZIP::liblzma" for configuration "Debug"
-set_property(TARGET MINIZIP::liblzma APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
-set_target_properties(MINIZIP::liblzma PROPERTIES
-  IMPORTED_LINK_INTERFACE_LANGUAGES_DEBUG "C"
-  IMPORTED_LOCATION_DEBUG "${_IMPORT_PREFIX}/lib/lzma.lib"
-  )
-
-list(APPEND _cmake_import_check_targets MINIZIP::liblzma )
-list(APPEND _cmake_import_check_files_for_MINIZIP::liblzma "${_IMPORT_PREFIX}/lib/lzma.lib" )
-
-# Import target "MINIZIP::libzstd_static" for configuration "Debug"
-set_property(TARGET MINIZIP::libzstd_static APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
-set_target_properties(MINIZIP::libzstd_static PROPERTIES
-  IMPORTED_LINK_INTERFACE_LANGUAGES_DEBUG "C"
-  IMPORTED_LOCATION_DEBUG "${_IMPORT_PREFIX}/lib/zstd_static.lib"
-  )
-
-list(APPEND _cmake_import_check_targets MINIZIP::libzstd_static )
-list(APPEND _cmake_import_check_files_for_MINIZIP::libzstd_static "${_IMPORT_PREFIX}/lib/zstd_static.lib" )
+list(APPEND _cmake_import_check_targets MINIZIP::zlib )
+list(APPEND _cmake_import_check_files_for_MINIZIP::zlib "${_IMPORT_PREFIX}/lib/zlib-ngd.lib" "${_IMPORT_PREFIX}/bin/zlib-ngd2.dll" )
 
 # Commands beyond this point should not need to know the version.
 set(CMAKE_IMPORT_FILE_VERSION)

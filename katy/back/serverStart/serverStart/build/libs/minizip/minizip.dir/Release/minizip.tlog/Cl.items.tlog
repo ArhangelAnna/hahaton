@@ -7,9 +7,6 @@ C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\mz_strm_spli
 C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\mz_zip.c;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\libs\minizip\minizip.dir\Release\mz_zip.obj
 C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\mz_zip_rw.c;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\libs\minizip\minizip.dir\Release\mz_zip_rw.obj
 C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\mz_strm_zlib.c;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\libs\minizip\minizip.dir\Release\mz_strm_zlib.obj
-C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\mz_strm_bzip.c;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\libs\minizip\minizip.dir\Release\mz_strm_bzip.obj
-C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\mz_strm_lzma.c;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\libs\minizip\minizip.dir\Release\mz_strm_lzma.obj
-C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\mz_strm_zstd.c;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\libs\minizip\minizip.dir\Release\mz_strm_zstd.obj
 C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\mz_os_win32.c;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\libs\minizip\minizip.dir\Release\mz_os_win32.obj
 C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\mz_strm_os_win32.c;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\libs\minizip\minizip.dir\Release\mz_strm_os_win32.obj
 C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\mz_crypt_winvista.c;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\libs\minizip\minizip.dir\Release\mz_crypt_winvista.obj

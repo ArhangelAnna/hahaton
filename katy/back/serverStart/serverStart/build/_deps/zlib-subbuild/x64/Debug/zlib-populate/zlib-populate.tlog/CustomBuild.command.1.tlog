@@ -1,0 +1,150 @@
+^C:\USERS\AAN\HAHATON\KATY\BACK\SERVERSTART\SERVERSTART\BUILD\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\4185BDE53A7D30618ED75E232BF9AD3C\ZLIB-POPULATE-MKDIR.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -Dcfgdir=/Debug -P C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/zlib-populate-prefix/tmp/zlib-populate-mkdirs.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\AAN\HAHATON\KATY\BACK\SERVERSTART\SERVERSTART\BUILD\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\4185BDE53A7D30618ED75E232BF9AD3C\ZLIB-POPULATE-DOWNLOAD.RULE
+setlocal
+cd C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/zlib-populate-prefix/tmp/zlib-populate-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\AAN\HAHATON\KATY\BACK\SERVERSTART\SERVERSTART\BUILD\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\4185BDE53A7D30618ED75E232BF9AD3C\ZLIB-POPULATE-UPDATE.RULE
+setlocal
+cd C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\zlib
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -Dcan_fetch=YES -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/zlib-populate-prefix/tmp/zlib-populate-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\AAN\HAHATON\KATY\BACK\SERVERSTART\SERVERSTART\BUILD\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\4185BDE53A7D30618ED75E232BF9AD3C\ZLIB-POPULATE-PATCH.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\AAN\HAHATON\KATY\BACK\SERVERSTART\SERVERSTART\BUILD\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\4185BDE53A7D30618ED75E232BF9AD3C\ZLIB-POPULATE-CONFIGURE.RULE
+setlocal
+cd C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\zlib-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\AAN\HAHATON\KATY\BACK\SERVERSTART\SERVERSTART\BUILD\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\4185BDE53A7D30618ED75E232BF9AD3C\ZLIB-POPULATE-BUILD.RULE
+setlocal
+cd C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\zlib-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\AAN\HAHATON\KATY\BACK\SERVERSTART\SERVERSTART\BUILD\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\4185BDE53A7D30618ED75E232BF9AD3C\ZLIB-POPULATE-INSTALL.RULE
+setlocal
+cd C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\zlib-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\AAN\HAHATON\KATY\BACK\SERVERSTART\SERVERSTART\BUILD\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\4185BDE53A7D30618ED75E232BF9AD3C\ZLIB-POPULATE-TEST.RULE
+setlocal
+cd C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\zlib-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-test
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\AAN\HAHATON\KATY\BACK\SERVERSTART\SERVERSTART\BUILD\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\1174F573D38A4AB2EB318FAB02F2D1D5\ZLIB-POPULATE-COMPLETE.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/CMakeFiles/Debug
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/CMakeFiles/Debug/zlib-populate-complete
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\AAN\HAHATON\KATY\BACK\SERVERSTART\SERVERSTART\BUILD\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\486CBAFC33A589461F4211488CB40C7B\ZLIB-POPULATE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\AAN\HAHATON\KATY\BACK\SERVERSTART\SERVERSTART\BUILD\_DEPS\ZLIB-SUBBUILD\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild -BC:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild --check-stamp-file C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zlib-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

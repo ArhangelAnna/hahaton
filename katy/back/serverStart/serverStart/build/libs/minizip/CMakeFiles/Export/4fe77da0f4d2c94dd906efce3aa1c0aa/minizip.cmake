@@ -19,7 +19,7 @@ set(CMAKE_IMPORT_FILE_VERSION 1)
 set(_cmake_targets_defined "")
 set(_cmake_targets_not_defined "")
 set(_cmake_expected_targets "")
-foreach(_cmake_expected_target IN ITEMS MINIZIP::minizip MINIZIP::bzip2 MINIZIP::liblzma MINIZIP::libzstd_static)
+foreach(_cmake_expected_target IN ITEMS MINIZIP::minizip MINIZIP::zlib)
   list(APPEND _cmake_expected_targets "${_cmake_expected_target}")
   if(TARGET "${_cmake_expected_target}")
     list(APPEND _cmake_targets_defined "${_cmake_expected_target}")
@@ -60,29 +60,15 @@ add_library(MINIZIP::minizip STATIC IMPORTED)
 
 set_target_properties(MINIZIP::minizip PROPERTIES
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include/minizip;${_IMPORT_PREFIX}/include/minizip"
-  INTERFACE_LINK_LIBRARIES "\$<\$<NOT:\$<CONFIG:DEBUG>>:C:/Users/AAN/vcpkg/installed/x64-windows/lib/zlib.lib>;\$<\$<CONFIG:DEBUG>:C:/Users/AAN/vcpkg/installed/x64-windows/debug/lib/zlibd.lib>;bcrypt.lib;ncrypt.lib;crypt32.lib;MINIZIP::bzip2;MINIZIP::liblzma;MINIZIP::libzstd_static"
+  INTERFACE_LINK_LIBRARIES "bcrypt.lib;ncrypt.lib;crypt32.lib;MINIZIP::zlib"
 )
 
-# Create imported target MINIZIP::bzip2
-add_library(MINIZIP::bzip2 STATIC IMPORTED)
+# Create imported target MINIZIP::zlib
+add_library(MINIZIP::zlib SHARED IMPORTED)
 
-set_target_properties(MINIZIP::bzip2 PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include/minizip"
-)
-
-# Create imported target MINIZIP::liblzma
-add_library(MINIZIP::liblzma STATIC IMPORTED)
-
-set_target_properties(MINIZIP::liblzma PROPERTIES
-  INTERFACE_COMPILE_DEFINITIONS "LZMA_API_STATIC"
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include/minizip"
-)
-
-# Create imported target MINIZIP::libzstd_static
-add_library(MINIZIP::libzstd_static STATIC IMPORTED)
-
-set_target_properties(MINIZIP::libzstd_static PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include/minizip"
+set_target_properties(MINIZIP::zlib PROPERTIES
+  INTERFACE_COMPILE_DEFINITIONS "ZLIBNG_NATIVE_API"
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;${_IMPORT_PREFIX}/include/minizip"
 )
 
 # Load information for each installed configuration.

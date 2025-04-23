@@ -28,15 +28,6 @@
     <ClCompile Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\mz_strm_zlib.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\mz_strm_bzip.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\mz_strm_lzma.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\mz_strm_zstd.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\mz_os_win32.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -97,15 +88,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\mz_strm_zlib.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\mz_strm_bzip.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\mz_strm_lzma.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\mz_strm_zstd.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\mz_strm_pkcrypt.h">
