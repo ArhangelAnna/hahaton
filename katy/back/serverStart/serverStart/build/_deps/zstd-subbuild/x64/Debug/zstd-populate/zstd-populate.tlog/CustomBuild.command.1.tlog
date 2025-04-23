@@ -1,0 +1,150 @@
+^C:\USERS\AAN\HAHATON\KATY\BACK\SERVERSTART\SERVERSTART\BUILD\_DEPS\ZSTD-SUBBUILD\CMAKEFILES\AE858D9AD25D7D8BCC0E4A374B22732E\ZSTD-POPULATE-MKDIR.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -Dcfgdir=/Debug -P C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zstd-subbuild/zstd-populate-prefix/tmp/zstd-populate-mkdirs.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zstd-subbuild/zstd-populate-prefix/src/zstd-populate-stamp/Debug/zstd-populate-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\AAN\HAHATON\KATY\BACK\SERVERSTART\SERVERSTART\BUILD\_DEPS\ZSTD-SUBBUILD\CMAKEFILES\AE858D9AD25D7D8BCC0E4A374B22732E\ZSTD-POPULATE-DOWNLOAD.RULE
+setlocal
+cd C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zstd-subbuild/zstd-populate-prefix/tmp/zstd-populate-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zstd-subbuild/zstd-populate-prefix/src/zstd-populate-stamp/Debug/zstd-populate-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\AAN\HAHATON\KATY\BACK\SERVERSTART\SERVERSTART\BUILD\_DEPS\ZSTD-SUBBUILD\CMAKEFILES\AE858D9AD25D7D8BCC0E4A374B22732E\ZSTD-POPULATE-UPDATE.RULE
+setlocal
+cd C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\zstd
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -Dcan_fetch=YES -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zstd-subbuild/zstd-populate-prefix/tmp/zstd-populate-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\AAN\HAHATON\KATY\BACK\SERVERSTART\SERVERSTART\BUILD\_DEPS\ZSTD-SUBBUILD\CMAKEFILES\AE858D9AD25D7D8BCC0E4A374B22732E\ZSTD-POPULATE-PATCH.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zstd-subbuild/zstd-populate-prefix/src/zstd-populate-stamp/Debug/zstd-populate-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\AAN\HAHATON\KATY\BACK\SERVERSTART\SERVERSTART\BUILD\_DEPS\ZSTD-SUBBUILD\CMAKEFILES\AE858D9AD25D7D8BCC0E4A374B22732E\ZSTD-POPULATE-CONFIGURE.RULE
+setlocal
+cd C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\zstd-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zstd-subbuild/zstd-populate-prefix/src/zstd-populate-stamp/Debug/zstd-populate-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\AAN\HAHATON\KATY\BACK\SERVERSTART\SERVERSTART\BUILD\_DEPS\ZSTD-SUBBUILD\CMAKEFILES\AE858D9AD25D7D8BCC0E4A374B22732E\ZSTD-POPULATE-BUILD.RULE
+setlocal
+cd C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\zstd-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zstd-subbuild/zstd-populate-prefix/src/zstd-populate-stamp/Debug/zstd-populate-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\AAN\HAHATON\KATY\BACK\SERVERSTART\SERVERSTART\BUILD\_DEPS\ZSTD-SUBBUILD\CMAKEFILES\AE858D9AD25D7D8BCC0E4A374B22732E\ZSTD-POPULATE-INSTALL.RULE
+setlocal
+cd C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\zstd-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zstd-subbuild/zstd-populate-prefix/src/zstd-populate-stamp/Debug/zstd-populate-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\AAN\HAHATON\KATY\BACK\SERVERSTART\SERVERSTART\BUILD\_DEPS\ZSTD-SUBBUILD\CMAKEFILES\AE858D9AD25D7D8BCC0E4A374B22732E\ZSTD-POPULATE-TEST.RULE
+setlocal
+cd C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\zstd-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zstd-subbuild/zstd-populate-prefix/src/zstd-populate-stamp/Debug/zstd-populate-test
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\AAN\HAHATON\KATY\BACK\SERVERSTART\SERVERSTART\BUILD\_DEPS\ZSTD-SUBBUILD\CMAKEFILES\35DF6ECEFEA409B5002141C265300AE3\ZSTD-POPULATE-COMPLETE.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zstd-subbuild/CMakeFiles/Debug
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zstd-subbuild/CMakeFiles/Debug/zstd-populate-complete
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zstd-subbuild/zstd-populate-prefix/src/zstd-populate-stamp/Debug/zstd-populate-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\AAN\HAHATON\KATY\BACK\SERVERSTART\SERVERSTART\BUILD\_DEPS\ZSTD-SUBBUILD\CMAKEFILES\27E3142579D97120F1FF77D35AE24B15\ZSTD-POPULATE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\AAN\HAHATON\KATY\BACK\SERVERSTART\SERVERSTART\BUILD\_DEPS\ZSTD-SUBBUILD\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zstd-subbuild -BC:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zstd-subbuild --check-stamp-file C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zstd-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

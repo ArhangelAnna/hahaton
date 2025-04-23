@@ -1,0 +1,10 @@
+^C:\USERS\AAN\HAHATON\KATY\BACK\SERVERSTART\SERVERSTART\BUILD\_DEPS\BZIP2-SUBBUILD\CMAKEFILES\CDD49311815C2E0BAB21B5DA0261C7C3\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/bzip2-subbuild -BC:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/bzip2-subbuild --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/bzip2-subbuild/bzip2-populate.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

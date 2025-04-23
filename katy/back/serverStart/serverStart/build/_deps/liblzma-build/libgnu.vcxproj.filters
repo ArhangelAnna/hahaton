@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib\getopt1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib\getopt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\src\common\sysdefs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib\getopt_int.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib\getopt-cdefs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib\getopt-core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib\getopt-ext.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib\getopt-pfx-core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib\getopt-pfx-ext.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\liblzma-build\lib\getopt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{1115B3F5-CFC1-396D-94A8-4E4C293998AB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{5C5B5EBB-D791-35CC-B6BE-741A16CD83B0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

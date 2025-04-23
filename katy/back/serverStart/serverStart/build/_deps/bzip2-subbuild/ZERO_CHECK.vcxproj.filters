@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\bzip2-subbuild\CMakeFiles\cdd49311815c2e0bab21b5da0261c7c3\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{CDAC4B77-073B-31F0-BC1A-C9F238B60DE7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

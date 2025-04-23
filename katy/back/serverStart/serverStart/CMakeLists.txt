@@ -4,16 +4,22 @@ project(DocxFormatterServer)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-include_directories(include)
+add_subdirectory(libs/tinyxml2)
+add_subdirectory(libs/minizip)
 
-# Поддержка vcpkg пакетов
-find_package(tinyxml2 CONFIG REQUIRED)
-find_package(unofficial-minizip CONFIG REQUIRED)
+include_directories(
+    include
+    libs/tinyxml2
+    libs/minizip      
+)
 
 add_executable(serverStart
     serverStart.cpp
     formatter.cpp
 )
 
-# Линкуем библиотеки
-target_link_libraries(serverStart PRIVATE tinyxml2 unofficial::minizip::minizip)
+target_link_libraries(serverStart PRIVATE
+    tinyxml2              
+    minizip               
+)
+

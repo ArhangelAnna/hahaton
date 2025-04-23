@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6793AAC2-0E64-3955-80FD-C169C23457E1}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <VcpkgEnabled>false</VcpkgEnabled>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>libgnu</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="do_not_import_user.props" Condition="exists('do_not_import_user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">libgnu.dir\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">libgnu.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">libgnu</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">libgnu.dir\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">libgnu.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">libgnu</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">libgnu.dir\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">libgnu.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">libgnu</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">libgnu.dir\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">libgnu.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">libgnu</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\liblzma-build\lib;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;__GETOPT_PREFIX=rpl_;PACKAGE_NAME="XZ Utils";PACKAGE_BUGREPORT="xz@tukaani.org";PACKAGE_URL="https://tukaani.org/xz/";HAVE_STDBOOL_H;HAVE__BOOL;HAVE_STDINT_H;HAVE_INTTYPES_H;HAVE_CHECK_CRC32;TUKLIB_FAST_UNALIGNED_ACCESS;HAVE___BUILTIN_ASSUME_ALIGNED;MYTHREAD_VISTA;HAVE_CHECK_CRC64;HAVE_CHECK_SHA256;HAVE_MF_HC3;HAVE_MF_HC4;HAVE_MF_BT2;HAVE_MF_BT3;HAVE_MF_BT4;HAVE_ENCODER_LZMA1;HAVE_ENCODER_LZMA2;HAVE_ENCODER_DELTA;HAVE_ENCODER_X86;HAVE_ENCODER_ARM;HAVE_ENCODER_ARMTHUMB;HAVE_ENCODER_ARM64;HAVE_ENCODER_POWERPC;HAVE_ENCODER_IA64;HAVE_ENCODER_SPARC;HAVE_ENCODER_RISCV;HAVE_ENCODERS;HAVE_DECODER_LZMA1;HAVE_DECODER_LZMA2;HAVE_DECODER_DELTA;HAVE_DECODER_X86;HAVE_DECODER_ARM;HAVE_DECODER_ARMTHUMB;HAVE_DECODER_ARM64;HAVE_DECODER_POWERPC;HAVE_DECODER_IA64;HAVE_DECODER_SPARC;HAVE_DECODER_RISCV;HAVE_DECODERS;HAVE_LZIP_DECODER;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;__GETOPT_PREFIX=rpl_;PACKAGE_NAME=\"XZ Utils\";PACKAGE_BUGREPORT=\"xz@tukaani.org\";PACKAGE_URL=\"https://tukaani.org/xz/\";HAVE_STDBOOL_H;HAVE__BOOL;HAVE_STDINT_H;HAVE_INTTYPES_H;HAVE_CHECK_CRC32;TUKLIB_FAST_UNALIGNED_ACCESS;HAVE___BUILTIN_ASSUME_ALIGNED;MYTHREAD_VISTA;HAVE_CHECK_CRC64;HAVE_CHECK_SHA256;HAVE_MF_HC3;HAVE_MF_HC4;HAVE_MF_BT2;HAVE_MF_BT3;HAVE_MF_BT4;HAVE_ENCODER_LZMA1;HAVE_ENCODER_LZMA2;HAVE_ENCODER_DELTA;HAVE_ENCODER_X86;HAVE_ENCODER_ARM;HAVE_ENCODER_ARMTHUMB;HAVE_ENCODER_ARM64;HAVE_ENCODER_POWERPC;HAVE_ENCODER_IA64;HAVE_ENCODER_SPARC;HAVE_ENCODER_RISCV;HAVE_ENCODERS;HAVE_DECODER_LZMA1;HAVE_DECODER_LZMA2;HAVE_DECODER_DELTA;HAVE_DECODER_X86;HAVE_DECODER_ARM;HAVE_DECODER_ARMTHUMB;HAVE_DECODER_ARM64;HAVE_DECODER_POWERPC;HAVE_DECODER_IA64;HAVE_DECODER_SPARC;HAVE_DECODER_RISCV;HAVE_DECODERS;HAVE_LZIP_DECODER;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\liblzma-build\lib;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\liblzma-build\lib;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\liblzma-build\lib;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;__GETOPT_PREFIX=rpl_;PACKAGE_NAME="XZ Utils";PACKAGE_BUGREPORT="xz@tukaani.org";PACKAGE_URL="https://tukaani.org/xz/";HAVE_STDBOOL_H;HAVE__BOOL;HAVE_STDINT_H;HAVE_INTTYPES_H;HAVE_CHECK_CRC32;TUKLIB_FAST_UNALIGNED_ACCESS;HAVE___BUILTIN_ASSUME_ALIGNED;MYTHREAD_VISTA;HAVE_CHECK_CRC64;HAVE_CHECK_SHA256;HAVE_MF_HC3;HAVE_MF_HC4;HAVE_MF_BT2;HAVE_MF_BT3;HAVE_MF_BT4;HAVE_ENCODER_LZMA1;HAVE_ENCODER_LZMA2;HAVE_ENCODER_DELTA;HAVE_ENCODER_X86;HAVE_ENCODER_ARM;HAVE_ENCODER_ARMTHUMB;HAVE_ENCODER_ARM64;HAVE_ENCODER_POWERPC;HAVE_ENCODER_IA64;HAVE_ENCODER_SPARC;HAVE_ENCODER_RISCV;HAVE_ENCODERS;HAVE_DECODER_LZMA1;HAVE_DECODER_LZMA2;HAVE_DECODER_DELTA;HAVE_DECODER_X86;HAVE_DECODER_ARM;HAVE_DECODER_ARMTHUMB;HAVE_DECODER_ARM64;HAVE_DECODER_POWERPC;HAVE_DECODER_IA64;HAVE_DECODER_SPARC;HAVE_DECODER_RISCV;HAVE_DECODERS;HAVE_LZIP_DECODER;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;__GETOPT_PREFIX=rpl_;PACKAGE_NAME=\"XZ Utils\";PACKAGE_BUGREPORT=\"xz@tukaani.org\";PACKAGE_URL=\"https://tukaani.org/xz/\";HAVE_STDBOOL_H;HAVE__BOOL;HAVE_STDINT_H;HAVE_INTTYPES_H;HAVE_CHECK_CRC32;TUKLIB_FAST_UNALIGNED_ACCESS;HAVE___BUILTIN_ASSUME_ALIGNED;MYTHREAD_VISTA;HAVE_CHECK_CRC64;HAVE_CHECK_SHA256;HAVE_MF_HC3;HAVE_MF_HC4;HAVE_MF_BT2;HAVE_MF_BT3;HAVE_MF_BT4;HAVE_ENCODER_LZMA1;HAVE_ENCODER_LZMA2;HAVE_ENCODER_DELTA;HAVE_ENCODER_X86;HAVE_ENCODER_ARM;HAVE_ENCODER_ARMTHUMB;HAVE_ENCODER_ARM64;HAVE_ENCODER_POWERPC;HAVE_ENCODER_IA64;HAVE_ENCODER_SPARC;HAVE_ENCODER_RISCV;HAVE_ENCODERS;HAVE_DECODER_LZMA1;HAVE_DECODER_LZMA2;HAVE_DECODER_DELTA;HAVE_DECODER_X86;HAVE_DECODER_ARM;HAVE_DECODER_ARMTHUMB;HAVE_DECODER_ARM64;HAVE_DECODER_POWERPC;HAVE_DECODER_IA64;HAVE_DECODER_SPARC;HAVE_DECODER_RISCV;HAVE_DECODERS;HAVE_LZIP_DECODER;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\liblzma-build\lib;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\liblzma-build\lib;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\liblzma-build\lib;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;__GETOPT_PREFIX=rpl_;PACKAGE_NAME="XZ Utils";PACKAGE_BUGREPORT="xz@tukaani.org";PACKAGE_URL="https://tukaani.org/xz/";HAVE_STDBOOL_H;HAVE__BOOL;HAVE_STDINT_H;HAVE_INTTYPES_H;HAVE_CHECK_CRC32;TUKLIB_FAST_UNALIGNED_ACCESS;HAVE___BUILTIN_ASSUME_ALIGNED;MYTHREAD_VISTA;HAVE_CHECK_CRC64;HAVE_CHECK_SHA256;HAVE_MF_HC3;HAVE_MF_HC4;HAVE_MF_BT2;HAVE_MF_BT3;HAVE_MF_BT4;HAVE_ENCODER_LZMA1;HAVE_ENCODER_LZMA2;HAVE_ENCODER_DELTA;HAVE_ENCODER_X86;HAVE_ENCODER_ARM;HAVE_ENCODER_ARMTHUMB;HAVE_ENCODER_ARM64;HAVE_ENCODER_POWERPC;HAVE_ENCODER_IA64;HAVE_ENCODER_SPARC;HAVE_ENCODER_RISCV;HAVE_ENCODERS;HAVE_DECODER_LZMA1;HAVE_DECODER_LZMA2;HAVE_DECODER_DELTA;HAVE_DECODER_X86;HAVE_DECODER_ARM;HAVE_DECODER_ARMTHUMB;HAVE_DECODER_ARM64;HAVE_DECODER_POWERPC;HAVE_DECODER_IA64;HAVE_DECODER_SPARC;HAVE_DECODER_RISCV;HAVE_DECODERS;HAVE_LZIP_DECODER;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;__GETOPT_PREFIX=rpl_;PACKAGE_NAME=\"XZ Utils\";PACKAGE_BUGREPORT=\"xz@tukaani.org\";PACKAGE_URL=\"https://tukaani.org/xz/\";HAVE_STDBOOL_H;HAVE__BOOL;HAVE_STDINT_H;HAVE_INTTYPES_H;HAVE_CHECK_CRC32;TUKLIB_FAST_UNALIGNED_ACCESS;HAVE___BUILTIN_ASSUME_ALIGNED;MYTHREAD_VISTA;HAVE_CHECK_CRC64;HAVE_CHECK_SHA256;HAVE_MF_HC3;HAVE_MF_HC4;HAVE_MF_BT2;HAVE_MF_BT3;HAVE_MF_BT4;HAVE_ENCODER_LZMA1;HAVE_ENCODER_LZMA2;HAVE_ENCODER_DELTA;HAVE_ENCODER_X86;HAVE_ENCODER_ARM;HAVE_ENCODER_ARMTHUMB;HAVE_ENCODER_ARM64;HAVE_ENCODER_POWERPC;HAVE_ENCODER_IA64;HAVE_ENCODER_SPARC;HAVE_ENCODER_RISCV;HAVE_ENCODERS;HAVE_DECODER_LZMA1;HAVE_DECODER_LZMA2;HAVE_DECODER_DELTA;HAVE_DECODER_X86;HAVE_DECODER_ARM;HAVE_DECODER_ARMTHUMB;HAVE_DECODER_ARM64;HAVE_DECODER_POWERPC;HAVE_DECODER_IA64;HAVE_DECODER_SPARC;HAVE_DECODER_RISCV;HAVE_DECODERS;HAVE_LZIP_DECODER;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\liblzma-build\lib;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\liblzma-build\lib;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\liblzma-build\lib;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;__GETOPT_PREFIX=rpl_;PACKAGE_NAME="XZ Utils";PACKAGE_BUGREPORT="xz@tukaani.org";PACKAGE_URL="https://tukaani.org/xz/";HAVE_STDBOOL_H;HAVE__BOOL;HAVE_STDINT_H;HAVE_INTTYPES_H;HAVE_CHECK_CRC32;TUKLIB_FAST_UNALIGNED_ACCESS;HAVE___BUILTIN_ASSUME_ALIGNED;MYTHREAD_VISTA;HAVE_CHECK_CRC64;HAVE_CHECK_SHA256;HAVE_MF_HC3;HAVE_MF_HC4;HAVE_MF_BT2;HAVE_MF_BT3;HAVE_MF_BT4;HAVE_ENCODER_LZMA1;HAVE_ENCODER_LZMA2;HAVE_ENCODER_DELTA;HAVE_ENCODER_X86;HAVE_ENCODER_ARM;HAVE_ENCODER_ARMTHUMB;HAVE_ENCODER_ARM64;HAVE_ENCODER_POWERPC;HAVE_ENCODER_IA64;HAVE_ENCODER_SPARC;HAVE_ENCODER_RISCV;HAVE_ENCODERS;HAVE_DECODER_LZMA1;HAVE_DECODER_LZMA2;HAVE_DECODER_DELTA;HAVE_DECODER_X86;HAVE_DECODER_ARM;HAVE_DECODER_ARMTHUMB;HAVE_DECODER_ARM64;HAVE_DECODER_POWERPC;HAVE_DECODER_IA64;HAVE_DECODER_SPARC;HAVE_DECODER_RISCV;HAVE_DECODERS;HAVE_LZIP_DECODER;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;__GETOPT_PREFIX=rpl_;PACKAGE_NAME=\"XZ Utils\";PACKAGE_BUGREPORT=\"xz@tukaani.org\";PACKAGE_URL=\"https://tukaani.org/xz/\";HAVE_STDBOOL_H;HAVE__BOOL;HAVE_STDINT_H;HAVE_INTTYPES_H;HAVE_CHECK_CRC32;TUKLIB_FAST_UNALIGNED_ACCESS;HAVE___BUILTIN_ASSUME_ALIGNED;MYTHREAD_VISTA;HAVE_CHECK_CRC64;HAVE_CHECK_SHA256;HAVE_MF_HC3;HAVE_MF_HC4;HAVE_MF_BT2;HAVE_MF_BT3;HAVE_MF_BT4;HAVE_ENCODER_LZMA1;HAVE_ENCODER_LZMA2;HAVE_ENCODER_DELTA;HAVE_ENCODER_X86;HAVE_ENCODER_ARM;HAVE_ENCODER_ARMTHUMB;HAVE_ENCODER_ARM64;HAVE_ENCODER_POWERPC;HAVE_ENCODER_IA64;HAVE_ENCODER_SPARC;HAVE_ENCODER_RISCV;HAVE_ENCODERS;HAVE_DECODER_LZMA1;HAVE_DECODER_LZMA2;HAVE_DECODER_DELTA;HAVE_DECODER_X86;HAVE_DECODER_ARM;HAVE_DECODER_ARMTHUMB;HAVE_DECODER_ARM64;HAVE_DECODER_POWERPC;HAVE_DECODER_IA64;HAVE_DECODER_SPARC;HAVE_DECODER_RISCV;HAVE_DECODERS;HAVE_LZIP_DECODER;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\liblzma-build\lib;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\liblzma-build\lib;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/libs/minizip/third_party/liblzma/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/AAN/hahaton/katy/back/serverStart/serverStart -BC:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build --check-stamp-file C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/liblzma-build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-4.0\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakePushCheckState.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CTest.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CTestUseLaunchers.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckStructHasMember.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckSymbolExists.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindGettext.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindIntl.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\TestBigEndian.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\WriteBasicConfigVersionFile.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_common.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_cpucores.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_integer.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_large_file_support.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_mbstr.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_physmem.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_progname.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib\getopt.in.h;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\src\liblzma\liblzma.pc.in;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\tests\tests.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\liblzma-build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/libs/minizip/third_party/liblzma/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/AAN/hahaton/katy/back/serverStart/serverStart -BC:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build --check-stamp-file C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/liblzma-build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-4.0\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakePushCheckState.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CTest.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CTestUseLaunchers.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckStructHasMember.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckSymbolExists.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindGettext.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindIntl.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\TestBigEndian.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\WriteBasicConfigVersionFile.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_common.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_cpucores.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_integer.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_large_file_support.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_mbstr.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_physmem.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_progname.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib\getopt.in.h;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\src\liblzma\liblzma.pc.in;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\tests\tests.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\liblzma-build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/libs/minizip/third_party/liblzma/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/AAN/hahaton/katy/back/serverStart/serverStart -BC:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build --check-stamp-file C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/liblzma-build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-4.0\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakePushCheckState.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CTest.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CTestUseLaunchers.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckStructHasMember.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckSymbolExists.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindGettext.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindIntl.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\TestBigEndian.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\WriteBasicConfigVersionFile.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_common.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_cpucores.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_integer.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_large_file_support.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_mbstr.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_physmem.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_progname.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib\getopt.in.h;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\src\liblzma\liblzma.pc.in;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\tests\tests.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\liblzma-build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/libs/minizip/third_party/liblzma/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/AAN/hahaton/katy/back/serverStart/serverStart -BC:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build --check-stamp-file C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/liblzma-build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-4.0\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakePushCheckState.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CTest.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CTestUseLaunchers.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckStructHasMember.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckSymbolExists.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindGettext.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindIntl.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\TestBigEndian.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\WriteBasicConfigVersionFile.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_common.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_cpucores.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_integer.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_large_file_support.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_mbstr.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_physmem.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\cmake\tuklib_progname.cmake;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib\getopt.in.h;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\src\liblzma\liblzma.pc.in;C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\tests\tests.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\liblzma-build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\src\common\sysdefs.h" />
+    <ClCompile Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib\getopt1.c" />
+    <ClCompile Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib\getopt.c" />
+    <ClInclude Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib\getopt_int.h" />
+    <ClInclude Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib\getopt-cdefs.h" />
+    <ClInclude Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib\getopt-core.h" />
+    <ClInclude Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib\getopt-ext.h" />
+    <ClInclude Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib\getopt-pfx-core.h" />
+    <ClInclude Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\libs\minizip\third_party\liblzma\lib\getopt-pfx-ext.h" />
+    <ClInclude Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\liblzma-build\lib\getopt.h" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\ZERO_CHECK.vcxproj">
+      <Project>{8D2B0017-1D16-3D8B-8D3D-D31FB0462BE2}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

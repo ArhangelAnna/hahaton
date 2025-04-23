@@ -1,7 +1,12 @@
 {
 	"InstallScripts" : 
 	[
-		"C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/cmake_install.cmake"
+		"C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/cmake_install.cmake",
+		"C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/libs/tinyxml2/cmake_install.cmake",
+		"C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/libs/minizip/cmake_install.cmake",
+		"C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/liblzma-build/cmake_install.cmake",
+		"C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zstd-build/cmake_install.cmake",
+		"C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/zstd-build/lib/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

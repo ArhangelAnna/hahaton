@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\bzip2-subbuild\CMakeFiles\67cd9a67879b3972f1acefad92b67596\bzip2-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\bzip2-subbuild\CMakeFiles\67cd9a67879b3972f1acefad92b67596\bzip2-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\bzip2-subbuild\CMakeFiles\67cd9a67879b3972f1acefad92b67596\bzip2-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\bzip2-subbuild\CMakeFiles\67cd9a67879b3972f1acefad92b67596\bzip2-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\bzip2-subbuild\CMakeFiles\67cd9a67879b3972f1acefad92b67596\bzip2-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\bzip2-subbuild\CMakeFiles\67cd9a67879b3972f1acefad92b67596\bzip2-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\bzip2-subbuild\CMakeFiles\67cd9a67879b3972f1acefad92b67596\bzip2-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\bzip2-subbuild\CMakeFiles\67cd9a67879b3972f1acefad92b67596\bzip2-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\bzip2-subbuild\CMakeFiles\ff010a2ad99cbe6088fbc5bfefa4edd4\bzip2-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\bzip2-subbuild\CMakeFiles\cdd49311815c2e0bab21b5da0261c7c3\bzip2-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\bzip2-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\AAN\hahaton\katy\back\serverStart\serverStart\build\_deps\bzip2-subbuild\CMakeFiles\bzip2-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{CDAC4B77-073B-31F0-BC1A-C9F238B60DE7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

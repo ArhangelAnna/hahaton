@@ -1,0 +1,3 @@
+C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/bzip2-subbuild/CMakeFiles/bzip2-populate.dir
+C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/bzip2-subbuild/CMakeFiles/ALL_BUILD.dir
+C:/Users/AAN/hahaton/katy/back/serverStart/serverStart/build/_deps/bzip2-subbuild/CMakeFiles/ZERO_CHECK.dir

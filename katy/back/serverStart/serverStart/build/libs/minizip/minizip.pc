@@ -1,0 +1,14 @@
+prefix=C:/Program Files (x86)/DocxFormatterServer
+exec_prefix=C:/Program Files (x86)/DocxFormatterServer
+libdir=C:/Program Files (x86)/DocxFormatterServer/lib
+sharedlibdir=C:/Program Files (x86)/DocxFormatterServer/lib
+includedir=C:/Program Files (x86)/DocxFormatterServer/include/minizip
+
+Name: minizip
+Description: Zip manipulation library
+Version: 4.0.9
+
+Requires.private: zlib
+Libs: -L${libdir} -L${sharedlibdir} -lminizip
+Libs.private:
+Cflags: -I${includedir}
