@@ -2,14 +2,13 @@
 #include <fstream>
 #include "include/json.hpp"
 #include "include/httplib.h"
+#include "formatter.h"
 
 using json = nlohmann::json;
 using namespace httplib;
 using namespace std;
 
-string format_document(const string& file_content, const json& metadata) {
-    return "Форматированный документ";
-}
+
 
 int main() {
     Server svr;
