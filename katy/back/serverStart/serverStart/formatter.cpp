@@ -4,11 +4,11 @@
 #include <iostream>
 #include <vector>
 #include <tinyxml2.h>
-#include <libs/minizip/mz.h>          // Базовые определения
-#include <libs/minizip/mz_os.h>       // Функции ОС
-#include <libs/minizip/mz_strm.h>      // Потоки
-#include <libs/minizip/mz_zip.h>       // ZIP-архивы
-#include <libs/minizip/mz_zip_rw.h>    // Чтение/запись ZIP
+#include <minizi/mz.h>          // Базовые определения
+#include <minizi/mz_os.h>       // Функции ОС
+#include <minizi/mz_strm.h>      // Потоки
+#include <minizi/mz_zip.h>       // ZIP-архивы
+#include <minizi/mz_zip_rw.h>    // Чтение/запись ZIP
 
 using namespace std;
 using namespace tinyxml2;
