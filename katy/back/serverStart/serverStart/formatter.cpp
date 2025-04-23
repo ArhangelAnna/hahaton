@@ -3,17 +3,17 @@
 #include <sstream>
 #include <iostream>
 #include <vector>
-#include "tinyxml2.h"
-#include "minizip/unzip.h"
-#include "minizip/zip.h"
+#include <tinyxml2.h>
+#include <minizip/mz.h>          // Базовые определения
+#include <minizip/mz_os.h>       // Функции ОС
+#include <minizip/mz_strm.h>      // Потоки
+#include <minizip/mz_zip.h>       // ZIP-архивы
+#include <minizip/mz_zip_rw.h>    // Чтение/запись ZIP
 
 using namespace std;
 using namespace tinyxml2;
 
-struct DocxFile {
-    string path;
-    vector<char> data;
-};
+
 struct DocxFile {
     string path;
     vector<char> data;
@@ -465,56 +465,102 @@ string ProcessXml(const vector<char>& xmlData, const string& filename) {
 // Распаковка DOCX
 vector<DocxFile> UnzipDocx(const string& filename) {
     vector<DocxFile> files;
-    unzFile zip = unzOpen(filename.c_str());
-    if (!zip) {
-        cerr << "Ошибка открытия файла" << endl;
+    int32_t err = MZ_OK;
+    
+    // Создаём объект для чтения ZIP (без аргументов!)
+    void *reader = mz_zip_reader_create();
+    if (!reader) {
+        cerr << "Ошибка создания ZIP-ридера" << endl;
+        return files;
+    }
+    
+    // Открываем архив
+    err = mz_zip_reader_open_file(reader, filename.c_str());
+    if (err != MZ_OK) {
+        cerr << "Ошибка открытия файла: " << filename << endl;
+        mz_zip_reader_delete(&reader);
         return files;
     }
 
-    if (unzGoToFirstFile(zip) != UNZ_OK) {
-        unzClose(zip);
+    // Переходим к первому файлу в архиве
+    err = mz_zip_reader_goto_first_entry(reader);
+    if (err != MZ_OK) {
+        cerr << "Архив пуст или повреждён" << endl;
+        mz_zip_reader_delete(&reader);
         return files;
     }
 
+    // Читаем все файлы
     do {
-        char filepath[256];
-        unz_file_info fileInfo;
-        unzGetCurrentFileInfo(zip, &fileInfo, filepath, sizeof(filepath), nullptr, 0, nullptr, 0);
+        mz_zip_file *file_info = NULL;
+        err = mz_zip_reader_entry_get_info(reader, &file_info);
+        if (err != MZ_OK) {
+            cerr << "Ошибка чтения информации о файле" << endl;
+            continue;
+        }
 
-        if (unzOpenCurrentFile(zip) != UNZ_OK) continue;
-
+        // Подготавливаем структуру для хранения данных
         DocxFile file;
-        file.path = filepath;
-        file.data.resize(fileInfo.uncompressed_size);
-        unzReadCurrentFile(zip, file.data.data(), fileInfo.uncompressed_size);
-        unzCloseCurrentFile(zip);
+        file.path = file_info->filename;
+        file.data.resize(file_info->uncompressed_size);
+
+        // Читаем содержимое файла
+        err = mz_zip_reader_entry_read(reader, file.data.data(), file.data.size());
+        if (err < 0) {
+            cerr << "Ошибка чтения файла: " << file.path << endl;
+            continue;
+        }
 
         files.push_back(file);
-    } while (unzGoToNextFile(zip) == UNZ_OK);
+    } while (mz_zip_reader_goto_next_entry(reader) == MZ_OK);
 
-    unzClose(zip);
+    // Закрываем и освобождаем ресурсы
+    mz_zip_reader_close(reader);
+    mz_zip_reader_delete(&reader);
+    
     return files;
 }
-
 // Упаковка DOCX
 bool ZipDocx(const vector<DocxFile>& files, const string& filename) {
-    zipFile zip = zipOpen(filename.c_str(), APPEND_STATUS_CREATE);
-    if (!zip) {
-        cerr << "Ошибка создания архива" << endl;
+    int32_t err = MZ_OK;
+    
+    // Создаём объект для записи ZIP
+    void *writer = mz_zip_writer_create();
+    if (!writer) {
+        cerr << "Ошибка создания ZIP-райтера" << endl;
+        return false;
+    }
+    
+    // Открываем архив для записи
+    err = mz_zip_writer_open_file(writer, filename.c_str(), 0, 1);
+    if (err != MZ_OK) {
+        cerr << "Ошибка создания архива: " << filename << endl;
+        mz_zip_writer_delete(&writer);
         return false;
     }
 
+    // Добавляем файлы в архив
     for (const auto& file : files) {
-        zip_fileinfo fileInfo = {};
-        if (zipOpenNewFileInZip(zip, file.path.c_str(), &fileInfo, nullptr, 0, nullptr, 0, nullptr, Z_DEFLATED, Z_DEFAULT_COMPRESSION) != ZIP_OK) {
+        mz_zip_file file_info = {};
+        file_info.filename = file.path.c_str();
+        file_info.compression_method = MZ_COMPRESS_METHOD_DEFLATE;
+        file_info.zip64 = MZ_ZIP64_AUTO;
+
+        // Явное приведение типа к void*
+        err = mz_zip_writer_add_buffer(writer, 
+                                     const_cast<void*>(static_cast<const void*>(file.data.data())),
+                                     file.data.size(), 
+                                     &file_info);
+        if (err != MZ_OK) {
             cerr << "Ошибка добавления файла: " << file.path << endl;
             continue;
         }
-        zipWriteInFileInZip(zip, file.data.data(), file.data.size());
-        zipCloseFileInZip(zip);
     }
 
-    zipClose(zip, nullptr);
+    // Закрываем архив
+    mz_zip_writer_close(writer);
+    mz_zip_writer_delete(&writer);
+    
     return true;
 }
 

@@ -2,20 +2,18 @@ cmake_minimum_required(VERSION 3.10)
 project(DocxFormatterServer)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Включаем директории
 include_directories(include)
 
-# tinyxml2 и minizip должны быть установлены на системе или лежать в папке
-find_library(TINYXML2_LIB tinyxml2)
-find_library(MINIZIP_LIB minizip)
+# Поддержка vcpkg пакетов
+find_package(tinyxml2 CONFIG REQUIRED)
+find_package(unofficial-minizip CONFIG REQUIRED)
 
-# Источники
-add_executable(server
+add_executable(serverStart
     serverStart.cpp
     formatter.cpp
 )
 
-# Линки
-target_link_libraries(server ${TINYXML2_LIB} ${MINIZIP_LIB})
+# Линкуем библиотеки
+target_link_libraries(serverStart PRIVATE tinyxml2 unofficial::minizip::minizip)
