@@ -4,11 +4,11 @@
 #include <iostream>
 #include <vector>
 #include <tinyxml2.h>
-#include <minizi/mz.h>          // Базовые определения
-#include <minizi/mz_os.h>       // Функции ОС
-#include <minizi/mz_strm.h>      // Потоки
-#include <minizi/mz_zip.h>       // ZIP-архивы
-#include <minizi/mz_zip_rw.h>    // Чтение/запись ZIP
+#include <mz.h>          // Базовые определения
+#include <mz_os.h>       // Функции ОС
+#include <mz_strm.h>      // Потоки
+#include <mz_zip.h>       // ZIP-архивы
+#include <mz_zip_rw.h>    // Чтение/запись ZIP
 
 using namespace std;
 using namespace tinyxml2;
@@ -567,7 +567,6 @@ bool ZipDocx(const vector<DocxFile>& files, const string& filename) {
 string format_document(const string& docx_data, const nlohmann::json& metadata) {
     string inputPath = "temp_input.docx";
     string outputPath = "temp_output.docx";
-
     ofstream out(inputPath, ios::binary);
     out.write(docx_data.c_str(), docx_data.size());
     out.close();
@@ -604,5 +603,6 @@ string format_document(const string& docx_data, const nlohmann::json& metadata) 
     ifstream in(outputPath, ios::binary);
     ostringstream ss;
     ss << in.rdbuf();
+    in.close();
     return ss.str();
 }
