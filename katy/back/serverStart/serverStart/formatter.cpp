@@ -457,9 +457,11 @@ string ProcessXml(const vector<char>& xmlData, const string& filename) {
         CreatePageNumbers(doc);
     }
 
-    XMLPrinter printer;
+    XMLPrinter printer(nullptr, true); // Включаем компактный режим без лишних переводов строк
     doc.Print(&printer);
-    return printer.CStr();
+
+    std::string xmlContent = printer.CStr();
+    return xmlContent;
 }
 
 // Распаковка DOCX
@@ -584,7 +586,7 @@ string format_document(const string& docx_data, const nlohmann::json& metadata) 
     if (!hasFooter) {
         DocxFile footer;
         footer.path = "word/footer1.xml";
-        string content = R"(<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><w:ftr xmlns:w=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"></w:ftr>)";
+        string content = R"(<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:ftr xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"></w:ftr>)";
         footer.data.assign(content.begin(), content.end());
         files.push_back(footer);
     }
@@ -592,7 +594,7 @@ string format_document(const string& docx_data, const nlohmann::json& metadata) 
     for (auto& file : files) {
         string newContent = ProcessXml(file.data, file.path);
         if (!newContent.empty()) {
-            file.data.assign(newContent.begin(), newContent.end());
+            file.data = vector<char>(newContent.begin(), newContent.end());
         }
     }
 
