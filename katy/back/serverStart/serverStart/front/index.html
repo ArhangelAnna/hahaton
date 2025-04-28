@@ -20,6 +20,7 @@
     <script type="text/babel" src="js/literature.js"></script>
     <script type="text/babel" src="js/titlePageForm.js"></script>
     <script type="text/babel">
+        
         const { useState, useRef } = React;
         // Главный компонент приложения
         function App() {
@@ -42,56 +43,56 @@
 
             const handleFormatSubmit = async () => {
                 if (!file) return;
-                
+
                 setResult({ status: 'loading', message: 'Идет форматирование файла...' });
 
                 try {
                     // 1. Создаем FormData для отправки файла и данных
-                const formPayload = new FormData();
-                
-                // 2. Добавляем файл
-                formPayload.append('document', file);
-                
-                // 3. Добавляем метаданные в JSON
-                formPayload.append('metadata', JSON.stringify({
-                    format: format,
-                    titleData: formData,
-                    literature: literature
-                }));
-                console.log([...formPayload.entries()]);
-                // 4. Отправляем на сервер
-                const response = await fetch('http://localhost:8080/format', {
-                    method: 'POST',
-                    body: formPayload
-                    // Не устанавливаем Content-Type - браузер сделает это сам с boundary
-                });
+                    const formPayload = new FormData();
 
-                if (!response.ok) {
-                    throw new Error(`Ошибка сервера: ${response.status}`);
+                    // 2. Добавляем файл
+                    formPayload.append('document', file);
+
+                    // 3. Добавляем метаданные в JSON
+                    formPayload.append('metadata', JSON.stringify({
+                        format: format,
+                        titleData: formData,
+                        literature: literature
+                    }));
+                    console.log([...formPayload.entries()]);
+                    // 4. Отправляем на сервер
+                    const response = await fetch('http://localhost:8080/format', {
+                        method: 'POST',
+                        body: formPayload
+                        // Не устанавливаем Content-Type - браузер сделает это сам с boundary
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`Ошибка сервера: ${response.status}`);
+                    }
+
+                    // 5. Получаем и сохраняем результат
+                    const blob = await response.blob();
+                    const url = URL.createObjectURL(blob);
+
+                    // 6. Автоматическое скачивание
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `Отчет_по_${formData.workTitle.trim().replace(/\s+/g, '_')}_СП_${formData.studentName.trim().replace(/\s+/g, '_').replace(/\./g, '_')}${formData.studentGroup}.${format}`;
+                    a.click();
+
+                    setResult({
+                        status: 'success',
+                        message: 'Форматирование завершено! Файл автоматически загружается.'
+                    });
+
+                } catch (error) {
+                    setResult({
+                        status: 'error',
+                        message: `Ошибка: ${error.message}`
+                    });
+                    console.error('Ошибка при отправке:', error);
                 }
-
-                // 5. Получаем и сохраняем результат
-                const blob = await response.blob();
-                const url = URL.createObjectURL(blob);
-                
-                // 6. Автоматическое скачивание
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = `Отчет_по_${formData.workTitle.trim().replace(/\s+/g, '_')}_СП_${formData.studentName.trim().replace(/\s+/g, '_').replace(/\./g, '_')}${formData.studentGroup}.${format}`;
-                a.click();
-
-                setResult({ 
-                    status: 'success', 
-                    message: 'Форматирование завершено! Файл автоматически загружается.' 
-                });
-
-            } catch (error) {
-                setResult({ 
-                    status: 'error', 
-                    message: `Ошибка: ${error.message}`
-                });
-                console.error('Ошибка при отправке:', error);
-            }
             };
 
             return (
@@ -107,7 +108,7 @@
                                         <p className="text-muted">Загрузите файл текстовый (DOCX, TXT или ODT) БЕЗ ТИТУЛЬНОГО ЛИСТА, и мы автоматически отформатируем его по ГОСТ СТО 1.701-2010</p>
                                     </div>
 
-                                    <FileUploadArea 
+                                    <FileUploadArea
                                         onFileSelect={setFile}
                                         onFileClear={() => setFile(null)}
                                         fileName={file?.name}
@@ -118,30 +119,30 @@
                                         <div className="row">
                                             <div className="col-md-6 mb-3">
                                                 <label className="form-label">Формат результата</label>
-                                                <select 
-                                                    className="form-select" 
+                                                <select
+                                                    className="form-select"
                                                     value={format}
                                                     onChange={(e) => setFormat(e.target.value)}
                                                 >
-                                                    <option value="docx">DOCX (Word)</option>
-                                                    <option value="pdf">PDF</option>
+                                                    <option value="docx">режим исправления</option>
+                                                    <option value="pdf">режим ошибок</option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <TitlePageForm 
+                                    <TitlePageForm
                                         formData={formData}
                                         onFormChange={setFormData}
                                     />
 
-                                    <LiteratureList 
+                                    <LiteratureList
                                         literature={literature}
                                         setLiterature={setLiterature}
                                     />
 
                                     <div className="d-grid gap-2 mt-4">
-                                        <button 
+                                        <button
                                             className="btn btn-custom btn-lg"
                                             onClick={handleFormatSubmit}
                                             disabled={!file}

@@ -464,64 +464,90 @@ string ProcessXml(const vector<char>& xmlData, const string& filename) {
     return xmlContent;
 }
 
-// Распаковка DOCX
 vector<DocxFile> UnzipDocx(const string& filename) {
     vector<DocxFile> files;
     int32_t err = MZ_OK;
-    
-    // Создаём объект для чтения ZIP (без аргументов!)
-    void *reader = mz_zip_reader_create();
+
+    // Create ZIP reader object
+    void* reader = mz_zip_reader_create();
     if (!reader) {
-        cerr << "Ошибка создания ZIP-ридера" << endl;
+        cerr << "Error: Failed to create ZIP reader." << endl;
         return files;
     }
-    
-    // Открываем архив
+
+    // Open the DOCX (ZIP) file
     err = mz_zip_reader_open_file(reader, filename.c_str());
     if (err != MZ_OK) {
-        cerr << "Ошибка открытия файла: " << filename << endl;
+        cerr << "Error: Failed to open file: " << filename << endl;
         mz_zip_reader_delete(&reader);
         return files;
     }
 
-    // Переходим к первому файлу в архиве
+    // Move to the first entry
     err = mz_zip_reader_goto_first_entry(reader);
     if (err != MZ_OK) {
-        cerr << "Архив пуст или повреждён" << endl;
+        cerr << "Error: Archive is empty or corrupted." << endl;
+        mz_zip_reader_close(reader);
         mz_zip_reader_delete(&reader);
         return files;
     }
 
-    // Читаем все файлы
+    // Iterate through all entries
     do {
-        mz_zip_file *file_info = NULL;
+        mz_zip_file* file_info = nullptr;
         err = mz_zip_reader_entry_get_info(reader, &file_info);
-        if (err != MZ_OK) {
-            cerr << "Ошибка чтения информации о файле" << endl;
+        if (err != MZ_OK || file_info == nullptr) {
+            cerr << "Warning: Failed to get entry info. Skipping entry." << endl;
             continue;
         }
 
-        // Подготавливаем структуру для хранения данных
+        // Open current entry
+        err = mz_zip_reader_entry_open(reader);
+        if (err != MZ_OK) {
+            cerr << "Warning: Failed to open entry. Skipping entry." << endl;
+            continue;
+        }
+
+        // Prepare file structure
         DocxFile file;
-        file.path = file_info->filename;
+        if (file_info->filename) {
+            file.path = file_info->filename; // RAW UTF-8, do not try to print it directly!
+        } else {
+            cerr << "Warning: Entry without a filename. Skipping." << endl;
+            mz_zip_reader_entry_close(reader);
+            continue;
+        }
+
+        if (file_info->uncompressed_size == 0) {
+            cerr << "Warning: Empty file skipped." << endl;
+            mz_zip_reader_entry_close(reader);
+            continue;
+        }
+
         file.data.resize(file_info->uncompressed_size);
 
-        // Читаем содержимое файла
-        err = mz_zip_reader_entry_read(reader, file.data.data(), file.data.size());
-        if (err < 0) {
-            cerr << "Ошибка чтения файла: " << file.path << endl;
+        // Read file data
+        int32_t bytes_read = mz_zip_reader_entry_read(reader, file.data.data(), file.data.size());
+        if (bytes_read < 0 || static_cast<size_t>(bytes_read) != file.data.size()) {
+            cerr << "Error: Failed to read file data. Skipping." << endl;
+            mz_zip_reader_entry_close(reader);
             continue;
         }
 
+        // Close current entry
+        mz_zip_reader_entry_close(reader);
+
         files.push_back(file);
+
     } while (mz_zip_reader_goto_next_entry(reader) == MZ_OK);
 
-    // Закрываем и освобождаем ресурсы
+    // Close and clean up
     mz_zip_reader_close(reader);
     mz_zip_reader_delete(&reader);
-    
+
     return files;
 }
+
 // Упаковка DOCX
 bool ZipDocx(const vector<DocxFile>& files, const string& filename) {
     int32_t err = MZ_OK;
