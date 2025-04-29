@@ -9,9 +9,11 @@
 #include <mz_strm.h>      // Потоки
 #include <mz_zip.h>       // ZIP-архивы
 #include <mz_zip_rw.h>    // Чтение/запись ZIP
+#include <filesystem> // Для file_size
 
 using namespace std;
 using namespace tinyxml2;
+namespace fs = std::filesystem; // Алиас для удобства
 
 
 struct DocxFile {
@@ -468,83 +470,94 @@ vector<DocxFile> UnzipDocx(const string& filename) {
     vector<DocxFile> files;
     int32_t err = MZ_OK;
 
-    // Create ZIP reader object
+    // Проверка файла
+    {
+        ifstream testFile(filename, ios::binary | ios::ate);
+        if (!testFile.is_open()) {
+            cerr << "Error: File not found: " << filename << endl;
+            return files;
+        }
+        testFile.close();
+        cout << "Processing: " << filename << endl;
+    }
+
+    // Создаем ридер
     void* reader = mz_zip_reader_create();
     if (!reader) {
-        cerr << "Error: Failed to create ZIP reader." << endl;
+        cerr << "Error: Cannot create ZIP reader" << endl;
         return files;
     }
 
-    // Open the DOCX (ZIP) file
+    // Открываем архив
     err = mz_zip_reader_open_file(reader, filename.c_str());
     if (err != MZ_OK) {
-        cerr << "Error: Failed to open file: " << filename << endl;
+        cerr << "Error opening archive (" << err << ")" << endl;
         mz_zip_reader_delete(&reader);
         return files;
     }
 
-    // Move to the first entry
+    // Перебираем файлы
     err = mz_zip_reader_goto_first_entry(reader);
-    if (err != MZ_OK) {
-        cerr << "Error: Archive is empty or corrupted." << endl;
+    if (err != MZ_OK && err != MZ_END_OF_LIST) {
+        cerr << "Error finding first entry (" << err << ")" << endl;
         mz_zip_reader_close(reader);
         mz_zip_reader_delete(&reader);
         return files;
     }
 
-    // Iterate through all entries
-    do {
+    while (err == MZ_OK) {
         mz_zip_file* file_info = nullptr;
-        err = mz_zip_reader_entry_get_info(reader, &file_info);
-        if (err != MZ_OK || file_info == nullptr) {
-            cerr << "Warning: Failed to get entry info. Skipping entry." << endl;
+        if (mz_zip_reader_entry_get_info(reader, &file_info) != MZ_OK || !file_info || !file_info->filename) {
+            err = mz_zip_reader_goto_next_entry(reader);
             continue;
         }
 
-        // Open current entry
-        err = mz_zip_reader_entry_open(reader);
-        if (err != MZ_OK) {
-            cerr << "Warning: Failed to open entry. Skipping entry." << endl;
-            continue;
+        string entry_name = file_info->filename;
+
+        // Проверяем, не является ли запись директорией (по последнему символу)
+        bool is_directory = !entry_name.empty() && (entry_name.back() == '/' || entry_name.back() == '\\');
+
+        if (!is_directory) {
+            cout << "Found file: " << entry_name << " (" << file_info->uncompressed_size << " bytes)" << endl;
+
+            DocxFile docx_file;
+            docx_file.path = entry_name;
+
+            if (file_info->uncompressed_size > 0) {
+                // Открываем файл в архиве
+                if (mz_zip_reader_entry_open(reader) == MZ_OK) {
+                    try {
+                        docx_file.data.resize(static_cast<size_t>(file_info->uncompressed_size));
+                        int32_t bytes_read = mz_zip_reader_entry_read(reader, docx_file.data.data(), docx_file.data.size());
+
+                        if (bytes_read > 0) {
+                            files.push_back(docx_file);
+                            cout << "  Successfully read: " << bytes_read << " bytes" << endl;
+                        }
+                    }
+                    catch (...) {
+                        cerr << "  Memory allocation error" << endl;
+                    }
+                    mz_zip_reader_entry_close(reader);
+                }
+            }
+            else {
+                // Добавляем даже пустые файлы
+                files.push_back(docx_file);
+                cout << "  Adding empty file" << endl;
+            }
+        }
+        else {
+            cout << "Skipping directory: " << entry_name << endl;
         }
 
-        // Prepare file structure
-        DocxFile file;
-        if (file_info->filename) {
-            file.path = file_info->filename; // RAW UTF-8, do not try to print it directly!
-        } else {
-            cerr << "Warning: Entry without a filename. Skipping." << endl;
-            mz_zip_reader_entry_close(reader);
-            continue;
-        }
+        err = mz_zip_reader_goto_next_entry(reader);
+    }
 
-        if (file_info->uncompressed_size == 0) {
-            cerr << "Warning: Empty file skipped." << endl;
-            mz_zip_reader_entry_close(reader);
-            continue;
-        }
-
-        file.data.resize(file_info->uncompressed_size);
-
-        // Read file data
-        int32_t bytes_read = mz_zip_reader_entry_read(reader, file.data.data(), file.data.size());
-        if (bytes_read < 0 || static_cast<size_t>(bytes_read) != file.data.size()) {
-            cerr << "Error: Failed to read file data. Skipping." << endl;
-            mz_zip_reader_entry_close(reader);
-            continue;
-        }
-
-        // Close current entry
-        mz_zip_reader_entry_close(reader);
-
-        files.push_back(file);
-
-    } while (mz_zip_reader_goto_next_entry(reader) == MZ_OK);
-
-    // Close and clean up
     mz_zip_reader_close(reader);
     mz_zip_reader_delete(&reader);
 
+    cout << "Extracted files: " << files.size() << endl;
     return files;
 }
 
